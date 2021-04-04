@@ -47,7 +47,7 @@ abstract class MviViewFragment<
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //Начать обработку событий после того как фрагмент
-        //войдет в состояние CREATED
+        //войдет в состояние STARTED (будет виден пользователю)
         stateCollectJob = lifecycleScope.launchWhenStarted {
             viewModel.state.collect {
                 render(it)
